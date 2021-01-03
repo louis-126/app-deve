@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ{% endblock %}
+
+ {% block scripts %}
+    <script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight){
+      content.style.maxHeight = null;
+    } else {
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
+  });
+}
+</script>
+ {% endblock %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/faq.css') }}">
+<h1>Frequently Asked Questions</h1>
+<button class="collapsible">Can I buy medication without doctor's prescription?</button>
+<div class="content">
+    <p>Yes, you can buy medication without a doctor's prescription.</p>
+</div>
+
+<button class="collapsible">Will patients still be required to attend clinics if they choose to have online consultation?</button>
+<div class="content">
+    <p>Patients will still be required to see a doctor at the clinic for any laboratory and preventive health screenings such as diabetic eye and foot screenings.</p>
+</div>
+
+<button class="collapsible">Will the video consultation be confidential?</button>
+<div class="content">
+    <p>The consultation will be confidential as no recording will be allowed throughout the video consultation.
+        Doctors are also using organisational approved Zoom accounts and devices to conduct he video consultation.</p>
+</div>
+
+<button class="collapsible">How do patients make payment?</button>
+<div class="content">
+    <p>They can make payment through PayNow or Credit Card.</p>
+</div>
+
+<button class="collapsible">What happens if a patient misses the doctor's video consultation</button>
+<div class="content">
+    <p>The patient may join the session as soon as possible. If the patient is unable to join the session, he/she may reschedule the appointment.</p>
+</div>
+
+<button class="collapsible">Can patient reschedule or cancel their video consultation appointments</button>
+<div class="content">
+    <p>Patients may reschedule or cancel their appointments by the appointment page.</p>
+</div>
+
+<button class="collapsible">Is it safer to consult the doctor at the Polyclinic than through video?</button>
+<div class="content">
+    <p>All doctor consultations at Polyclinic or through video are done with the same standard of care. The only difference is that physical examinations cannot be carried out during video consulation.
+        Patients will be advised by their doctors if there is a need for consultation and physical examination at the Polyclinic. Appointments for consultation at the Polyclinic will be made accordingly.</p>
+</div>
+
+<button class="collapsible">How long will our medication be delivered to us?</button>
+<div class="content">
+    <p>It will be  delivered to you as soon as possible. Estimated waiting delivery time will be 2-3days.</p>
+</div>
+
+<button class="collapsible">Can my family members join in?</button>
+<div class="content">
+    <p>Yes, your family members can join in to know more about your condition also.</p>
+</div>
+
+<button class="collapsible">What are the charges for video consultation?</button>
+<div class="content">
+<p>Singaporean (12-64 years old):$12 <br>
+Singaporean (≥65 years old):$6 <br>
+Permanent Resident:$30 <br>
+Non-Resident:$55</p>
+<p>Note: Above charges are subject to change without notice.<br><br><br></p>
+</div>
+
+
+{% endblock %}
