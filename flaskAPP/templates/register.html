@@ -1,0 +1,84 @@
+{%extends 'base.html'%}
+
+{%block title%}<title>Register Account</title>{%endblock%}
+{%block content%}
+<div>
+<form method="post" action="{{url_for('register')}}"style="margin-top:20px;padding-left:480px;">
+    <div>
+    <label for="nric">NRIC:</label>
+    </div>
+    <div>
+    <input type="text" name="nric"><br>
+    </div>
+    <div>
+    <label for="first_name">First Name:</label>
+    </div>
+    <div>
+    <input type="text" name="first_name">
+    </div>
+    <div>
+    <label for="last_name">Last Name:</label>
+    </div>
+    <div>
+    <input type="text" name="last_name"><br>
+    </div>
+    <div>
+    <label for="gender">Gender:</label>
+    </div>
+    <div>
+    <select name="gender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+    </select><br>
+    </div>
+    <div>
+    <label for="dob">Date of Birth:</label>
+    </div>
+    <div>
+    <input type="date" name="dob"><br>
+    </div>
+    <div>
+    <label for="contact_number">Contact Number:</label>
+     </div>
+    <div>
+           <input type="text" name="contact_number">
+    </div>
+    <div>
+          <label for="email">Email:</label>
+    </div>
+    <div>
+         <input type="email" name="email"><br>
+    </div>
+    <div>
+        <label for="address">Address:</label>
+    </div>
+    <div>
+          <input type="text" name="address"><br>
+    </div>
+    <div>
+        <label for="password">Password:</label>
+    </div>
+    <div>
+       <input type="password" name="password"><br>
+    </div>
+    <div>
+        <label for="confirm_password">Confirm Password:</label>
+    </div>
+    <div>
+        <input type="password" name="confirm_password"><br>
+    </div>
+    <div style="margin-top:10px;">
+      <input type="submit" value="Register!">
+    </div>
+<span><a href="{{url_for('login')}}">Already have a account?Login here!</a></span>
+
+    {%with messages = get_flashed_messages()%}
+    {%if messages%}
+    {%for message in messages%}
+    <span>{{message}}</span>
+    {%endfor%}
+    {%endif%}
+    {%endwith%}
+</form>
+</div>
+{%endblock%}

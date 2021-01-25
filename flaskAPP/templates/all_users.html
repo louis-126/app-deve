@@ -1,0 +1,38 @@
+{%extends 'base.html'%}
+{%block title%}<title>All Users</title>{%endblock%}
+{%block content%}
+<table style="border-collapse: collapse; width: 100%;margin-top:20px;">
+    <tr style="nth-child(even){background-color: #f2f2f2}">
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">UID/NRIC</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Name</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Gender</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">DoB</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Contact Number</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Email</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Address</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Update</th>
+       <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Delete</th>
+    </tr>
+    {%for user in all_users%}
+    <tr style="nth-child(even){background-color: #f2f2f2}">
+        <td style="text-align: left;padding: 8px;">{{user.get_id()}}</td>
+        <td style="text-align: left;padding: 8px;">{{user.get_name()}}</td>
+        <td style="text-align: left;padding: 8px;">{{user.get_gender()}}</td>
+        <td style="text-align: left;padding: 8px;">{{user.get_dob()}}</td>
+        <td style="text-align: left;padding: 8px;">{{user.get_contact_number()}}</td>
+        <td style="text-align: left;padding: 8px;">{{user.get_email()}}</td>
+        <td style="text-align: left;padding: 8px;">{{user.get_address()}}</td>
+        <td style="text-align: left;padding: 8px;"><a href="{{url_for('admin_update', uid=user.get_id())}}">Update</a></td>
+        <td style="text-align: left;padding: 8px;"><a href="{{url_for('admin_delete', uid=user.get_id())}}">Delete</a></td>
+    </tr>
+    {%endfor%}
+</table>
+{%with messages = get_flashed_messages()%}
+{%if messages%}
+{%for message in messages%}
+<span>{{message}}</span>
+{%endfor%}
+{%endif%}
+{%endwith%}
+<input type="button" onclick="location.href='{{url_for('add_doctor')}}'" value="Add doctor">
+{%endblock%}

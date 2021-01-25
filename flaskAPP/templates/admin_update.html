@@ -1,0 +1,24 @@
+{%extends 'base.html'%}
+{%block title%}<title>Update details</title>{%endblock%}
+
+{%block content%}
+<form method="post" action="{{url_for('admin_update', uid=user.get_id())}}">
+    <h2>Update profile</h2>
+    <label for="email">Email: </label>
+    <input type="text" name="email" value="{{user.get_email()}}"><br>
+    <label for="contact_number">Contact Number: </label>
+    <input type="text" name="contact_number" value="{{user.get_contact_number()}}"><br>
+    <label for="address">Address: </label>
+    <input type="text" name="address" value="{{user.get_address()}}"><br>
+    <label for="password">Password: </label>
+    <input type="text" name="password"><br>
+    <input type="submit" value="Update!">
+</form>
+{%with messages = get_flashed_messages()%}
+{%if messages%}
+{%for message in messages%}
+<span>{{message}}</span>
+{%endfor%}
+{%endif%}
+{%endwith%}
+{%endblock%}

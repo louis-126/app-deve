@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{%block title%}<title>Add Doctor</title>{%endblock%}
+{%block content%}
+<form method="post" action="{{url_for('add_doctor')}}">
+    <label for="nric">uid:</label>
+    <input type="text" name="nric"><br>
+    <label for="first_name">First Name:</label>
+    <input type="text" name="first_name">
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="last_name"><br>
+    <label for="gender">Gender:</label>
+    <select name="gender">
+        <option value="M">Male</option>
+        <option value="F">Female</option>
+    </select><br>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" name="dob"><br>
+    <label for="contact_number">Contact Number:</label>
+    <input type="text" name="contact_number">
+    <label for="email">Email:</label>
+    <input type="email" name="email"><br>
+    <label for="address">Address:</label>
+    <input type="text" name="address"><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password"><br>
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" name="confirm_password"><br>
+    <input type="submit" value="Add">
+</form>
+{%endblock%}

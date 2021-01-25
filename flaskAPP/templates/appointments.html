@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+<!--<style>-->
+<!--table {-->
+<!--  border-collapse: collapse;-->
+<!--  width: 100%;-->
+<!--}-->
+
+<!--th, td {-->
+<!--  text-align: left;-->
+<!--  padding: 8px;-->
+<!--}-->
+
+<!--tr:nth-child(even){background-color: #f2f2f2}-->
+
+<!--th {-->
+<!--  background-color: #4CAF50;-->
+<!--  color: white;-->
+<!--}-->
+<!--</style>-->
+{%block title%}<title>Appointments</title>{%endblock%}
+{%block content%}
+<h1>Appointments</h1>
+<table style="border-collapse: collapse; width: 100%;">
+    <tr style="nth-child(even){background-color: #f2f2f2}">
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Time</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">NRIC</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Name</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Gender</th>
+        <th style="background-color: #4CAF50; color: white;text-align: left; padding: 8px;">Dob</th>
+    </tr>
+    {%for time, patient in appointments.items()%}
+    <tr>
+        <td style="text-align: left;padding: 8px;">{{time}}</td>
+        <td style="text-align: left;padding: 8px;">{{patient["nric"]}}</td>
+        <td style="text-align: left;padding: 8px;">{{patient["name"]}}</td>
+        <td style="text-align: left;padding: 8px;">{{patient["gender"]}}</td>
+        <td style="text-align: left;padding: 8px;">{{patient["dob"]}}</td>
+    </tr>
+    {%endfor%}
+</table>
+{%endblock%}
